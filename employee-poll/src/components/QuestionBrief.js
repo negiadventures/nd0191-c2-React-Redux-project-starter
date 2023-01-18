@@ -8,7 +8,7 @@ const QuestionBrief = (props) => {
   }
   const { author, timestamp } = props.question;
   return (
-    <div class="question-brief">
+    <div className="question-brief">
       <ul>
         <li>{author}</li>
         <li>{timestamp}</li>

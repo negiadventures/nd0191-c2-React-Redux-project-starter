@@ -64,3 +64,19 @@ li {
   padding: 10px;
   text-decoration: none;
 }
+table{
+  margin: 0 auto;
+  border: 1px solid black;
+}
+tbody td{
+  padding: 30px;
+}
+tbody th{
+  padding: 30px;
+  background-color: #000000;
+}
+
+tbody tr:nth-child(odd){
+  background-color: #8d8b8c;
+  color: #fff;
+}
