@@ -138,3 +138,21 @@ tbody tr:nth-child(odd) {
 .poll-option-button {
   width: 100%;
 }
+.login-image-container {
+  margin: 0 auto;
+  max-width: 200px;
+}
+.login-image-container img {
+  width: 200px;
+}
+.login-form {
+  margin: 0 auto;
+  max-width: 500px;
+}
+.login-form label {
+  display: block;
+  text-align: center;
+}
+.login-form .input-text {
+  width: 100%;
+}

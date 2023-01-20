@@ -5,7 +5,7 @@ import { handleInititaldata } from "../actions/shared";
 import Home from "./Home";
 import { LoadingBar } from "react-redux-loading-bar";
 import NewQuestion from "./NewQuestion";
-import UnansweredQuestion from "./UnansweredQuestion";
+import Question from "./Question";
 import { Route, Routes } from "react-router-dom";
 import Nav from "./Nav";
 import Login from "./Login";
@@ -27,11 +27,9 @@ const App = (props) => {
           <Routes>
             <Route path="/" exact element={<Home />}></Route>
             <Route path="/leaderboard" element={<Leaderboard />}></Route>
-            <Route
-              path="/question/:id"
-              element={<UnansweredQuestion />}
-            ></Route>
+            <Route path="/question/:id" element={<Question />}></Route>
             <Route path="/add" element={<NewQuestion />}></Route>
+            <Route path="/login" element={<Login />}></Route>
           </Routes>
         </div>
       )}

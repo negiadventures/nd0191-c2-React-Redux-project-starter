@@ -14,8 +14,6 @@ export default function questions(state = {}, action) {
     case ANSWER_QUESTION:
       const { authedUser, answer, qid } = action;
       let answeringTo = {};
-      console.log("answer:", answer);
-      console.log(state[qid]);
       const isOptionOne = answer === "optionOne";
       answeringTo = isOptionOne
         ? {

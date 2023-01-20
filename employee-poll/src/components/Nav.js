@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import { setAuthedUser } from "../actions/authedUser";
 
 const Nav = (props) => {
   return (
@@ -16,7 +17,9 @@ const Nav = (props) => {
           <Link to="/add">New</Link>
         </li>
         <li>
-          <Link to="/logout">Logout</Link>
+          <button onClick={() => props.dispatch(setAuthedUser(null))}>
+            Logout
+          </button>
         </li>
         <li>{props.authedUser}</li>
         <li>

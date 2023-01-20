@@ -14,7 +14,7 @@ const withRouter = (Component) => {
   return ComponentWithRouterProp;
 };
 
-const UnansweredQuestion = (props) => {
+const Question = (props) => {
   const [value, setValue] = useState(0);
   function handleOpt(optionValue) {
     props.dispatch(
@@ -23,7 +23,6 @@ const UnansweredQuestion = (props) => {
         qid: props.question.id,
         answer: optionValue,
       })
-      
     );
     setValue(value + 1);
   }
@@ -34,7 +33,6 @@ const UnansweredQuestion = (props) => {
       (question.optionOne.votes.length + question.optionTwo.votes.length)
     ).toFixed(2);
   };
-  console.log(props.isAnswered);
   return (
     <div className="poll-container">
       <p className="center">Poll by {question.author}</p>
@@ -125,4 +123,4 @@ const mapStateToProps = ({ authedUser, users, questions }, props) => {
       : null,
   };
 };
-export default withRouter(connect(mapStateToProps)(UnansweredQuestion));
+export default withRouter(connect(mapStateToProps)(Question));

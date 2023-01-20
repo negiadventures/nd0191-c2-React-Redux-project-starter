@@ -20,8 +20,6 @@ export default function users(state = {}, action) {
         },
       };
     default:
-      console.log("defa state", state);
-      console.log("defa state", action);
       return state;
   }
 }
