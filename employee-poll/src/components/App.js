@@ -10,6 +10,7 @@ import { Route, Routes } from "react-router-dom";
 import Nav from "./Nav";
 import Login from "./Login";
 import Leaderboard from "./Leaderboard";
+
 const App = (props) => {
   useEffect(() => {
     props.dispatch(handleInititaldata());

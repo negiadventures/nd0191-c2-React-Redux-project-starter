@@ -1,8 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
 import { formatQuestion } from "../utils/helpers";
-
+import { useNavigate } from "react-router-dom";
 const QuestionBrief = (props) => {
+  let navigate = useNavigate();
+  const showQuestion = () => {
+    navigate(`/question/${props.question.id}`);
+  };
+
   if (props.question === null) {
     return <p>Question doesn't exists.</p>;
   }
@@ -13,7 +18,7 @@ const QuestionBrief = (props) => {
         <li>{author}</li>
         <li>{timestamp}</li>
       </ul>
-      <button>Show</button>
+      <button onClick={showQuestion}>Show</button>
     </div>
   );
 };

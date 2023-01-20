@@ -12,36 +12,29 @@ export default function questions(state = {}, action) {
         ...action.questions,
       };
     case ANSWER_QUESTION:
-      const { answer } = action;
+      const { authedUser, answer, qid } = action;
       let answeringTo = {};
-      const isOptionOne =
-        answer.text === state[answer.questionId].optionOne.text;
+      console.log("answer:", answer);
+      console.log(state[qid]);
+      const isOptionOne = answer === "optionOne";
       answeringTo = isOptionOne
         ? {
-            [answer.questionId]: {
-              ...state[answer.questionId],
-              optionOne: {
-                text: state[answer.questionId].optionOne.text,
-                votes: state[answer.questionId].optionOne.votes.concat([
-                  action.authedId,
-                ]),
-              },
+            ...state[qid],
+            optionOne: {
+              text: state[qid].optionOne.text,
+              votes: state[qid].optionOne.votes.concat([authedUser]),
             },
           }
         : {
-            [answer.questionId]: {
-              ...state[answer.questionId],
-              optionTwo: {
-                text: state[answer.questionId].optionTwo.text,
-                votes: state[answer.questionId].optionTwo.votes.concat([
-                  action.authedId,
-                ]),
-              },
+            ...state[qid],
+            optionTwo: {
+              text: state[qid].optionTwo.text,
+              votes: state[qid].optionTwo.votes.concat([authedUser]),
             },
           };
       return {
         ...state,
-        [action.questionId]: answeringTo,
+        [qid]: answeringTo,
       };
     case ADD_QUESTION:
       return {

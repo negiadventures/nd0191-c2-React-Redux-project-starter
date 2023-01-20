@@ -8,6 +8,8 @@ export default function users(state = {}, action) {
         ...action.users,
       };
     default:
+      console.log("defa state", state);
+      console.log("defa state", action);
       return state;
   }
 }

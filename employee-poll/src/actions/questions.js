@@ -31,22 +31,21 @@ export function receiveQuestions(questions) {
   };
 }
 
-function answerQuestion({ id, authedUser, answer }) {
+function answerQuestion({ qid, authedUser, answer }) {
   return {
     type: ANSWER_QUESTION,
-    qid: id,
+    qid: qid,
     authedUser,
-    answer,
+    answer: answer,
   };
 }
 
 export function handleAnswerQuestion(info) {
   return (dispatch) => {
-    dispatch(answerQuestion(info));
+    dispatch(showLoading());
 
-    return saveQuestionAnswer(info).catch((e) => {
-      console.warn("Error in handleAnswerQuestion:", e);
-      alert("there was an error liking the tweet. try again.");
-    });
+    return saveQuestionAnswer(info)
+      .then(() => dispatch(answerQuestion(info)))
+      .then(() => dispatch(hideLoading()));
   };
 }
