@@ -8,6 +8,7 @@ import { setAuthedUser } from "../actions/authedUser";
 const Login = (props) => {
   let navigate = useNavigate();
   const [error, setError] = useState("");
+  const [pass, setPass] = useState("");
   const handleAuthenticate = (username) => {
     props.dispatch(setAuthedUser(username));
     navigate("/");
@@ -15,6 +16,7 @@ const Login = (props) => {
   const handleLogin = (e) => {
     e.preventDefault();
     const values = serializeForm(e.target, { hash: true });
+    console.log(values);
     if (
       Object.keys(props.credentials).includes(values.username) &&
       props.credentials[values.username] === values.password
@@ -23,6 +25,15 @@ const Login = (props) => {
     } else {
       setError("Invalid Credentials. Try again.");
     }
+  };
+  const autofillPassword = (e) => {
+    const user = e.target.value;
+    if (user !== "Select a User") {
+      setPass(props.credentials[user]);
+    }
+  };
+  const setPassw = (e) => {
+    setPass(e.target.value);
   };
   return (
     <div className="login-container">
@@ -38,9 +49,28 @@ const Login = (props) => {
       <div className="login-form">
         <form onSubmit={handleLogin}>
           <label>User</label>
-          <input className="input-text" name="username" type="text" />
+          <select
+            className="input-text"
+            name="username"
+            onChange={autofillPassword}
+          >
+            <option>Select a User</option>
+            {Object.keys(props.credentials).map((u) => {
+              return (
+                <option key={u} value={u}>
+                  {u}
+                </option>
+              );
+            })}
+          </select>
           <label>Password</label>
-          <input className="input-text" name="password" type="text" />
+          <input
+            className="input-text"
+            name="password"
+            type="text"
+            onChange={setPassw}
+            value={pass}
+          />
           <center>
             <button>Submit</button>
           </center>
