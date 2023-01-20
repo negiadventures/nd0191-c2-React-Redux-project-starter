@@ -42,7 +42,7 @@ const Login = (props) => {
           <label>Password</label>
           <input className="input-text" name="password" type="text" />
           <center>
-            <button>Add Contact</button>
+            <button>Submit</button>
           </center>
           {error !== "" && <p className="center">{error}</p>}
         </form>

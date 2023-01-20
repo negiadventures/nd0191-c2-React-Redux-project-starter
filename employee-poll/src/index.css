@@ -156,3 +156,15 @@ tbody tr:nth-child(odd) {
 .login-form .input-text {
   width: 100%;
 }
+
+.question-form {
+  margin: 0 auto;
+  max-width: 500px;
+}
+.question-form label {
+  display: block;
+  text-align: center;
+}
+.question-form .input-text {
+  width: 100%;
+}
