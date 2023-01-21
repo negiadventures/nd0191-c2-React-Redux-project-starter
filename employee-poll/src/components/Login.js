@@ -10,13 +10,13 @@ const Login = (props) => {
   const [error, setError] = useState("");
   const [pass, setPass] = useState("");
   const handleAuthenticate = (username) => {
+    localStorage.setItem("user", username);
     props.dispatch(setAuthedUser(username));
     navigate("/");
   };
   const handleLogin = (e) => {
     e.preventDefault();
     const values = serializeForm(e.target, { hash: true });
-    console.log(values);
     if (
       Object.keys(props.credentials).includes(values.username) &&
       props.credentials[values.username] === values.password

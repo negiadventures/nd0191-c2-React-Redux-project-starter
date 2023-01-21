@@ -10,7 +10,7 @@ import { Route, Routes } from "react-router-dom";
 import Nav from "./Nav";
 import Login from "./Login";
 import Leaderboard from "./Leaderboard";
-
+import Error from "./Error";
 const App = (props) => {
   useEffect(() => {
     props.dispatch(handleInititaldata());
@@ -18,8 +18,7 @@ const App = (props) => {
   return (
     <Fragment>
       <LoadingBar />
-
-      {props.loading === true ? (
+      {props.authedUser === "" || props.authedUser === null ? (
         <Login />
       ) : (
         <div className="container">
@@ -30,6 +29,7 @@ const App = (props) => {
             <Route path="/question/:id" element={<Question />}></Route>
             <Route path="/add" element={<NewQuestion />}></Route>
             <Route path="/login" element={<Login />}></Route>
+            <Route path="*" element={<Error />} />
           </Routes>
         </div>
       )}
@@ -38,7 +38,7 @@ const App = (props) => {
 };
 
 const mapStateToProps = ({ authedUser }) => ({
-  loading: authedUser === null,
+  authedUser: authedUser,
 });
 
 export default connect(mapStateToProps)(App);
