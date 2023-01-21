@@ -10,7 +10,6 @@ const Login = (props) => {
   const [error, setError] = useState("");
   const [pass, setPass] = useState("");
   const handleAuthenticate = (username) => {
-    localStorage.setItem("user", username);
     props.dispatch(setAuthedUser(username));
     navigate("/");
   };

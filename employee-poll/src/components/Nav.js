@@ -17,12 +17,7 @@ const Nav = (props) => {
           <Link to="/add">New</Link>
         </li>
         <li>
-          <button
-            onClick={() => {
-              localStorage.clear();
-              props.dispatch(setAuthedUser(""));
-            }}
-          >
+          <button onClick={() => props.dispatch(setAuthedUser(""))}>
             Logout
           </button>
         </li>
