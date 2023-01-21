@@ -44,35 +44,33 @@ const Question = (props) => {
         />
       </div>
       {props.isAnswered ? (
-        <div className="poll-options-container">
-          <div className="poll-options-results">
-            <table>
-              <tbody>
-                <tr>
-                  <th>Would You Rather</th>
-                  <th>Your Vote</th>
-                  <th>Number of people Voted</th>
-                  <th>% of people Voted</th>
-                </tr>
-                <tr>
-                  <td>{question.optionOne.text}</td>
-                  <td>
-                    {props.user.answers[question.id] === "optionOne" ? "✓" : ""}
-                  </td>
-                  <td>{question.optionOne.votes.length}</td>
-                  <td>{calculate_perc(question.optionOne.votes.length)}</td>
-                </tr>
-                <tr>
-                  <td>{question.optionTwo.text}</td>
-                  <td>
-                    {props.user.answers[question.id] === "optionTwo" ? "✓" : ""}
-                  </td>
-                  <td>{question.optionTwo.votes.length}</td>
-                  <td>{calculate_perc(question.optionTwo.votes.length)}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+        <div className="poll-options-results">
+          <table>
+            <tbody>
+              <tr>
+                <th>Would You Rather</th>
+                <th>Your Vote</th>
+                <th>Number of people Voted</th>
+                <th>% of people Voted</th>
+              </tr>
+              <tr>
+                <td>{question.optionOne.text}</td>
+                <td>
+                  {props.user.answers[question.id] === "optionOne" ? "✓" : ""}
+                </td>
+                <td>{question.optionOne.votes.length}</td>
+                <td>{calculate_perc(question.optionOne.votes.length)}</td>
+              </tr>
+              <tr>
+                <td>{question.optionTwo.text}</td>
+                <td>
+                  {props.user.answers[question.id] === "optionTwo" ? "✓" : ""}
+                </td>
+                <td>{question.optionTwo.votes.length}</td>
+                <td>{calculate_perc(question.optionTwo.votes.length)}</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       ) : (
         <div className="poll-options-container">

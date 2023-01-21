@@ -21,11 +21,21 @@ const NewQuestion = (props) => {
       <div className="question-form">
         <form onSubmit={handleSubmit}>
           <label>First Option</label>
-          <input className="input-text" name="optionOneText" type="text" />
+          <input
+            className="input-text"
+            name="optionOneText"
+            placeholder="Option One"
+            type="text"
+          />
           <label>Second Option</label>
-          <input className="input-text" name="optionTwoText" type="text" />
+          <input
+            className="input-text"
+            name="optionTwoText"
+            placeholder="Option Two"
+            type="text"
+          />
           <center>
-            <button>Submit</button>
+            <button className="question-button">Submit</button>
           </center>
         </form>
       </div>

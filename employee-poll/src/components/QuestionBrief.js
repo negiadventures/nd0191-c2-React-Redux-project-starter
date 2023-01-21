@@ -14,11 +14,11 @@ const QuestionBrief = (props) => {
   const { author, timestamp } = props.question;
   return (
     <div className="question-brief">
-      <ul>
-        <li>{author}</li>
-        <li>{timestamp}</li>
-      </ul>
-      <button onClick={showQuestion}>Show</button>
+      <p className="center author">{author}</p>
+      <p className="center timestamp">{timestamp}</p>
+      <button className="question-brief-button" onClick={showQuestion}>
+        Show
+      </button>
     </div>
   );
 };

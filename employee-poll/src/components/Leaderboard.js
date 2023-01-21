@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { generateSummary } from "../utils/helpers";
 const Leaderboard = (props) => {
   return (
-    <div>
+    <div className="leaderboard-container">
       {props.summary !== null ? (
         <table>
           <tbody>
@@ -16,12 +16,22 @@ const Leaderboard = (props) => {
               return (
                 <tr key={user.username}>
                   <td>
-                    <img
-                      className="avatar"
-                      src={user.avatar}
-                      alt={user.avatar}
-                    />{" "}
-                    {user.name} | {user.username}
+                    <div className="leaderboard-user">
+                      <div className="leaderboard-float-left">
+                        <img
+                          className="avatar"
+                          src={user.avatar}
+                          alt={user.avatar}
+                        />{" "}
+                      </div>
+                      <div className="leaderboard-float-right">
+                        <p className="center">
+                          {user.name}
+                          <br />
+                          {user.username}
+                        </p>
+                      </div>
+                    </div>
                   </td>
                   <td>{user.answered}</td>
                   <td>{user.created}</td>

@@ -22,18 +22,23 @@ const App = (props) => {
         <Login />
       ) : (
         <div className="container">
-          <Nav />
-          <Routes>
-            <Route path="/" exact element={<Home />}></Route>
-            <Route path="/leaderboard" element={<Leaderboard />}></Route>
-            <Route
-              path="/questions/:question_id"
-              element={<Question />}
-            ></Route>
-            <Route path="/add" element={<NewQuestion />}></Route>
-            <Route path="/login" element={<Login />}></Route>
-            <Route path="*" element={<Error />} />
-          </Routes>
+          <div className="navigation">
+            <Nav />
+          </div>
+          <hr />
+          <div className="content">
+            <Routes>
+              <Route path="/" exact element={<Home />}></Route>
+              <Route path="/leaderboard" element={<Leaderboard />}></Route>
+              <Route
+                path="/questions/:question_id"
+                element={<Question />}
+              ></Route>
+              <Route path="/add" element={<NewQuestion />}></Route>
+              <Route path="/login" element={<Login />}></Route>
+              <Route path="*" element={<Error />} />
+            </Routes>
+          </div>
         </div>
       )}
     </Fragment>

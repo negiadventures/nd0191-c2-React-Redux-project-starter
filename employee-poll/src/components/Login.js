@@ -36,7 +36,7 @@ const Login = (props) => {
   };
   return (
     <div className="login-container">
-      <p className="center">Employee Polls</p>
+      <h1 className="center">Employee Polls</h1>
       <div className="login-image-container">
         <img
           src="https://i.ibb.co/f8vfTmB/employee-poll.jpg"
@@ -71,7 +71,7 @@ const Login = (props) => {
             value={pass}
           />
           <center>
-            <button>Submit</button>
+            <button className="login-button">Submit</button>
           </center>
           {error !== "" && <p className="center">{error}</p>}
         </form>
