@@ -111,12 +111,12 @@ const Question = (props) => {
 };
 
 const mapStateToProps = ({ authedUser, users, questions }, props) => {
-  const { id } = props.router.params;
-  const question = questions[id];
+  const { question_id } = props.router.params;
+  const question = questions[question_id];
   return {
     authedUser,
     authorAvatar: users[question.author].avatarURL,
-    isAnswered: Object.keys(users[authedUser].answers).includes(id),
+    isAnswered: Object.keys(users[authedUser].answers).includes(question_id),
     user: users[authedUser],
     question: question
       ? formatQuestion(question, users[question.author], authedUser)

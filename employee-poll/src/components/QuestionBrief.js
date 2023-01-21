@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 const QuestionBrief = (props) => {
   let navigate = useNavigate();
   const showQuestion = () => {
-    navigate(`/question/${props.question.id}`);
+    navigate(`/questions/${props.question.id}`);
   };
 
   if (props.question === null) {
