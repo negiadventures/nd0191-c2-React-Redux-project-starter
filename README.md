@@ -2,15 +2,30 @@
 
 ## Project code by Anirudh Negi:
 
-### 1. Go to directory employee-poll
+The employee poll web application is a tool that allows employees to add new poll or vote for an option on any polls created by their fellow employees. They can vote once, so if the poll is already voted, they can see summary of how many people voted for respective options. The answers are collected and employees are shown on leaderboard with a ranking based on number of question answered and number of questions created. It is built using React and Redux, which are JavaScript libraries for building user interfaces and managing application state, respectively. The application also utilizes Jest as the testing library to ensure that the application is functioning correctly and to catch any bugs or errors.
 
-### 2. Read instructions in employee-poll/README.md for executing code and test cases
+## How to run
 
-This is the starter code for the final assessment project for Udacity's React & Redux course.
+1. Go to directory employee-poll
 
-The `_DATA.js` file represents a fake database and methods that let you access the data. The only thing you need to edit in the ` _DATA.js` file is the value of `avatarURL`. Each user should have an avatar, so you’ll need to add the path to each user’s avatar.
+2. install all dependencies:
 
-Using the provided starter code, you'll build a React/Redux front end for the application. We recommend using the [Create React App](https://github.com/facebook/create-react-app) to bootstrap the project.
+### `npm install`
+
+3. Start the application:
+
+### `npm start`
+
+4. Open the application in the browser by navigating to:
+   [http://localhost:3000](http://localhost:3000)
+
+## Running tests
+
+To run the tests, run the command (use option a to run all tests):
+
+### `npm test`
+
+## NOTE: The `_DATA.js` file represents a fake database and methods that lets us access the data.
 
 ## Data
 
