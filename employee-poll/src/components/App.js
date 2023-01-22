@@ -6,12 +6,13 @@ import Home from "./Home";
 import { LoadingBar } from "react-redux-loading-bar";
 import NewQuestion from "./NewQuestion";
 import Question from "./Question";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import Nav from "./Nav";
 import Login from "./Login";
 import Leaderboard from "./Leaderboard";
 import Error from "./Error";
 const App = (props) => {
+  const location = useLocation();
   useEffect(() => {
     props.dispatch(handleInititaldata());
   }, [props]);
@@ -19,7 +20,7 @@ const App = (props) => {
     <Fragment>
       <LoadingBar />
       {props.authedUser === "" || props.authedUser === null ? (
-        <Login />
+        <Login replace state={{ path: location.pathname }} />
       ) : (
         <div className="container">
           <div className="navigation">

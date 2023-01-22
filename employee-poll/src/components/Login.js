@@ -12,7 +12,7 @@ const Login = (props) => {
   const handleAuthenticate = (username) => {
     props.dispatch(setAuthedUser(username));
     setPass("");
-    navigate("/");
+    navigate(props.state?.path || "/");
   };
   const handleLogin = (e) => {
     e.preventDefault();
