@@ -2,6 +2,8 @@ import React from "react";
 import { connect } from "react-redux";
 import { formatQuestion } from "../utils/helpers";
 import { useNavigate } from "react-router-dom";
+import PropTypes from "prop-types";
+
 const QuestionBrief = (props) => {
   let navigate = useNavigate();
   const showQuestion = () => {
@@ -31,5 +33,10 @@ const mapStateToProps = ({ authedUser, users, questions }, { id }) => {
       ? formatQuestion(question, users[question.author], authedUser)
       : null,
   };
+};
+
+QuestionBrief.propTypes = {
+  authedUser: PropTypes.string.isRequired,
+  question: PropTypes.object.isRequired,
 };
 export default connect(mapStateToProps)(QuestionBrief);

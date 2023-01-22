@@ -1,6 +1,8 @@
 import { connect } from "react-redux";
 import React from "react";
 import QuestionBrief from "./QuestionBrief";
+import PropTypes from "prop-types";
+
 const AnsweredQuestions = (props) => {
   return (
     <div>
@@ -28,5 +30,8 @@ const mapStateToProps = ({ authedUser, questions, users }) => ({
     (a, b) => questions[b].timestamp - questions[a].timestamp
   ),
 });
-
+AnsweredQuestions.propTypes = {
+  authedUser: PropTypes.string.isRequired,
+  answeredQuestionIds: PropTypes.array.isRequired,
+};
 export default connect(mapStateToProps)(AnsweredQuestions);

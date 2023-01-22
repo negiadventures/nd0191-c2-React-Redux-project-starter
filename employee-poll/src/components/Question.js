@@ -4,6 +4,9 @@ import { formatQuestion } from "../utils/helpers";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { handleAnswerQuestion } from "../actions/questions";
 import { useState } from "react";
+import { Navigate } from "react-router-dom";
+import PropTypes from "prop-types";
+
 const withRouter = (Component) => {
   const ComponentWithRouterProp = (props) => {
     let location = useLocation();
@@ -27,6 +30,7 @@ const Question = (props) => {
     setValue(value + 1);
   }
   const question = props.question;
+  if (!question) return <Navigate to="/404" />;
   const calculate_perc = (optionCount) => {
     return (
       (optionCount * 100) /
@@ -111,6 +115,7 @@ const Question = (props) => {
 const mapStateToProps = ({ authedUser, users, questions }, props) => {
   const { question_id } = props.router.params;
   const question = questions[question_id];
+  if (!question) return {};
   return {
     authedUser,
     authorAvatar: users[question.author].avatarURL,
@@ -120,5 +125,12 @@ const mapStateToProps = ({ authedUser, users, questions }, props) => {
       ? formatQuestion(question, users[question.author], authedUser)
       : null,
   };
+};
+Question.propTypes = {
+  authedUser: PropTypes.string,
+  authorAvatar: PropTypes.string,
+  isAnswered: PropTypes.bool,
+  user: PropTypes.object,
+  question: PropTypes.object,
 };
 export default withRouter(connect(mapStateToProps)(Question));

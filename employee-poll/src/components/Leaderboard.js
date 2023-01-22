@@ -1,8 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import { generateSummary } from "../utils/helpers";
+import PropTypes from "prop-types";
 const Leaderboard = (props) => {
-  console.log(props.summary);
   return (
     <div className="leaderboard-container">
       {props.summary !== null ? (
@@ -51,4 +51,8 @@ const mapStateToProps = ({ authedUser, questions, users }) => ({
   authedUser,
   summary: users ? generateSummary(users) : null,
 });
+Leaderboard.propTypes = {
+  authedUser: PropTypes.string.isRequired,
+  summary: PropTypes.array.isRequired,
+};
 export default connect(mapStateToProps)(Leaderboard);

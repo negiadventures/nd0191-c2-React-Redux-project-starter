@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 import { setAuthedUser } from "../actions/authedUser";
+import PropTypes from "prop-types";
 
 const Nav = (props) => {
   const linkStyle = {
@@ -60,5 +61,10 @@ const mapStateToProps = ({ authedUser, users }) => {
     authedUser,
     avatarURL: users[authedUser].avatarURL,
   };
+};
+
+Nav.propTypes = {
+  authedUser: PropTypes.string.isRequired,
+  avatarURL: PropTypes.string.isRequired,
 };
 export default connect(mapStateToProps)(Nav);

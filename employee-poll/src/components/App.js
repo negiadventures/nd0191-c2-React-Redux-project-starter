@@ -11,6 +11,7 @@ import Nav from "./Nav";
 import Login from "./Login";
 import Leaderboard from "./Leaderboard";
 import Error from "./Error";
+import PropTypes from "prop-types";
 const App = (props) => {
   const location = useLocation();
   useEffect(() => {
@@ -49,5 +50,7 @@ const App = (props) => {
 const mapStateToProps = ({ authedUser }) => ({
   authedUser: authedUser,
 });
-
+App.propTypes = {
+  authedUser: PropTypes.string,
+};
 export default connect(mapStateToProps)(App);
