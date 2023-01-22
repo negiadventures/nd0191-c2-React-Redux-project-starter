@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { generateSummary } from "../utils/helpers";
 const Leaderboard = (props) => {
+  console.log(props.summary);
   return (
     <div className="leaderboard-container">
       {props.summary !== null ? (

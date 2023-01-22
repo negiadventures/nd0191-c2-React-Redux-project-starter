@@ -40,11 +40,3 @@ export function generateSummary(users) {
     }
   });
 }
-
-export function formatCredentials(users) {
-  const cred = {};
-  Object.keys(users).forEach((u) => {
-    cred[users[u].id] = users[u].password;
-  });
-  return cred;
-}
